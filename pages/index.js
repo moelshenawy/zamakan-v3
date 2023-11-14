@@ -1,14 +1,10 @@
 import Head from "next/head";
 import { Inter, Tajawal } from "next/font/google";
 import styles from "@/styles/Home.module.css";
-import mapSVG from "../assets/SaudiMap.svg";
 import Navbar from "@/components/Navbar";
-import LiteraryEras from "@/components/LiteraryEras";
-import Poets from "@/components/Poets";
-import PoetryIn from "@/components/PoetryIn";
 import Svg from "@/components/SVGParts/Svg";
 import { Container } from "@mui/material";
-
+import HomePage from "@/components/HomePage";
 const inter = Inter({ subsets: ["latin"] });
 
 const tajawal = Tajawal({
@@ -29,10 +25,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${styles.main} ${tajawal.className}`} dir="rtl">
-        <Navbar />
-        <LiteraryEras />
-        <Poets />
-        <PoetryIn />
+        <HomePage />
       </main>
     </>
   );

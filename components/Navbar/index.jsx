@@ -1,11 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
+import { AppBar, Container, Toolbar } from '@mui/material';
+import Image from 'next/image';
+import imgs from '../../assets/constants/imgs';
+import Slider from '../Map/Slider';
 import styles from './index.module.scss'
-import { CssBaseline, useScrollTrigger, Slide, AppBar, Toolbar, Button, Container } from '@mui/material';
-import { burgerIcon, Logo, Rectangle, Search } from '../../assets/svgsComponents';
-
+import { useMapContext } from '@/context/MapContext';
 import localFont from 'next/font/local'
-import { useRouter } from 'next/router';
-import Link from 'next/link';
 
 const Effra = localFont({
   src: [
@@ -32,60 +32,32 @@ const Effra = localFont({
   ],
 })
 
-const Navbar = (props) => {
 
-  function HideOnScroll(props) {
-    const { children, window } = props;
-    const trigger = useScrollTrigger({
-      target: window ? window() : undefined,
-    });
-
-    return (
-      <Slide appear={false} direction="down" in={!trigger}>
-        {children}
-      </Slide>
-    );
-  }
-
+const Navbar = () => {
+  const { search } = imgs;
+  const { landElments } = useMapContext();
   return (
     <>
-
-      <main style={...Effra.style} dir='rtl'>
-        <AppBar style={{ background: '#F6F8FC' }} elevation={0} >
-
-          <Container sx={{ maxWidth: "1400px" }} maxWidth={false}>
-            <div className={styles.sec_container}
-            >
-              <Button className={styles.burger_icon} >
-                <svg width="19" height="14" viewBox="0 0 19 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1.39014 1H17.3901M1.39014 7H17.3901M1.39014 13H17.3901" stroke="#11292F" stroke-width="2" stroke-linecap="round" />
-                </svg>
-              </Button>
-
-
-              <Link className={styles.logo} href={'/'}>
-                <Logo />
-              </Link>
-
-
-              <div className={styles.discover}>
-
-                <Button className={styles.search_icon}>
-                  <Search />
-                </Button>
-
-                <div className={styles.btn_container}>
-                  <Button>استكشف الشعراء</Button>
+      <AppBar style={{ ...{ background: 'rgba(255, 255, 255, 0.3)', backdropFilter: 'blur(2px)', boxShadow: 'none' }, borderRadius: '0px 0px 24px 24px', ...Effra.style }}>
+        <Toolbar>
+          <Container>
+            <div className={styles.nav_container}>
+              <div className={styles.input_container}>
+                <input type="text" placeholder='البحث عن..' />
+                <div className={styles.icon_container}>
+                  <Image src={search} width={20} height={20} />
                 </div>
               </div>
+              {landElments?.length > 0 && <Slider landElments={landElments} />}
+
 
             </div>
           </Container>
-        </AppBar>
-        <Toolbar />
-      </main>
-    </>
-  );
-};
+        </Toolbar>
+      </AppBar>
 
-export default Navbar;
+    </>
+  )
+}
+
+export default Navbar

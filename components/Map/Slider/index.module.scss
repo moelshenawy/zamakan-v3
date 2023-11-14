@@ -1,0 +1,44 @@
+.slider_container {
+  z-index: 100;
+  width: 100% !important;
+  margin-top: 16px;
+  .slider {
+    min-width: 100px;
+    cursor: pointer;
+
+    .name {
+      p {
+        font-family: var(--effra-font);
+        color: #707f82;
+        transition: all 0.3s ease-in-out;
+        position: relative;
+        text-align: right;
+        font-size: 24px;
+        font-weight: 700;
+        letter-spacing: 0px;
+      }
+    }
+  }
+  .slider.active {
+    .name {
+      p {
+        color: #44394d;
+        transition: all 0.3s ease-in-out;
+
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: 2px !important;
+          right: 17%;
+          width: 16px;
+          height: 3px;
+          background-color: var(--main-beige-color);
+          z-index: 35;
+          transition: all 0.3s ease-in-out;
+
+          pointer-events: none;
+        }
+      }
+    }
+  }
+}

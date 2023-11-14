@@ -1,0 +1,29 @@
+footer#footer {
+  padding: 24px 32px 12px 32px !important;
+  border-radius: 16px 16px 0px 0px;
+
+  .icon_container {
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    // background-color: red;
+    svg {
+      path {
+        fill: #e3e1e4 !important;
+      }
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .icon_container:nth-child(3) {
+    width: 23.33px;
+    height: 23.33px;
+    svg {
+      path {
+        fill: rgba(68, 57, 77, 1) !important;
+      }
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
