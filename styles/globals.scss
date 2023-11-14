@@ -285,8 +285,8 @@ body::-webkit-scrollbar-track {
   }
 
   #svg1 {
-    width: 100% !important;
-    height: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
   }
 
   .select-box.active {

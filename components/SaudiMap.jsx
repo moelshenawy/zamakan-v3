@@ -7,7 +7,8 @@ import Svg from './SVGParts/Svg';
 import { useRouter } from 'next/router';
 import SelectPage from './SelectPage';
 import SelectMap from './SelectMap';
-import Carousel from 'react-multi-carousel';
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 const SaudiMap = () => {
   const { smallMap, } = imgs;
@@ -98,7 +99,6 @@ const SaudiMap = () => {
     seIsPointsActive(false)
   };
 
-
   useEffect(() => {
     const dataIndex = document.querySelectorAll(`#land-${activeIndex}`)[0];
     const elementsWithLandClassOnly = document.querySelectorAll('.land:not(.activeLand)');
@@ -173,12 +173,21 @@ const SaudiMap = () => {
 
         <TransformWrapper
           ref={transformComponentRef}
-          initialScale={1}
           wheel={{ wheelDisabled: true }}
-
+          initialPositionX={0}
+          initialPositionY={0}
           pan={{ disabled: false }}
           zoomIn={{ step: 100 }}
           zoomOut={{ step: 100 }}
+
+          limitToBounds={true}
+          minScale={0.5}
+          maxScale={2}
+          initialScale={1}
+
+          doubleClick={{ disabled: false, mode: "reset" }}
+          wrapperStyle={{ maxWidth: "100%", maxHeight: "calc(100vh - 50px)" }}
+
         >
 
 
@@ -197,8 +206,6 @@ const SaudiMap = () => {
                   landElments.forEach((element) => {
                     element.classList.remove('activeLand', 'hiddenPoints');
                   });
-
-
 
                 }}>Reset</button>
 
@@ -223,7 +230,6 @@ const SaudiMap = () => {
 
 
                 {Array.from({ length: landElments.length }).map((_, index) => (
-
                   <div className={`select-box ${index === activeIndex ? 'active' : ''}`} key={index} onClick={() => handleZoomToLand(index)}>
                     <div className={"img_container"}>
                       <img src={smallMap.src} alt="الرياض" />
@@ -240,41 +246,54 @@ const SaudiMap = () => {
 
 
               </div>
+              {landElments?.length > 0 && (
+                <div className="slider-container">
+                  <Carousel
+                    rtl={true}
+                    responsive={responsive}
+                    minimumTouchDrag={10}
+                    arrows={false}
+                    ssr={true}
 
-              <div className="slider-container">
-                <Carousel rtl={true} responsive={responsive}
-                  minimumTouchDrag={10}
-                  arrows={false}
-                >
-                  <div className={`slider ${activeIndex === null ? 'active' : ''}`} onClick={() => {
-                    resetTransform();
-                    setActiveIndex(null);
-                    setActiveLand(null);
-                    seIsPointsActive(false);
+                    draggable
+                    additionalTransfrom={0}
+                    centerMode={false}
+                    focusOnSelect={false}
+                    keyBoardControl
+                    pauseOnHover
+                    renderArrowsWhenDisabled={false}
+                    renderButtonGroupOutside={false}
+                    renderDotsOutside={false}
+                  >
+                    <div className={`slider ${activeIndex === null ? 'active' : ''}`} onClick={() => {
+                      resetTransform();
+                      setActiveIndex(null);
+                      setActiveLand(null);
+                      seIsPointsActive(false);
 
-                    landElments.forEach((element) => {
-                      element.classList.remove('activeLand', 'hiddenPoints');
-                    });
-                  }} >
+                      landElments.forEach((element) => {
+                        element.classList.remove('activeLand', 'hiddenPoints');
+                      });
+                    }} >
 
-                    <div className={"name"}>
-                      <Typography>المملكة</Typography>
-                    </div>
-                  </div>
-                  {Array.from({ length: landElments.length }).map((_, index) => (
-
-                    <>
-                      <div className={`slider ${index === activeIndex ? 'active' : ''}`} key={index} onClick={() => handleZoomToLand(index)}>
-                        <div className={"name"}>
-                          <Typography>Land - {index + 1}</Typography>
-                        </div>
+                      <div className={"name"}>
+                        <Typography>المملكة</Typography>
                       </div>
+                    </div>
+                    {Array.from({ length: landElments.length }).map((_, index) => (
 
-                    </>
-                  ))}
-                </Carousel>
-              </div>
+                      <>
+                        <div className={`slider ${index === activeIndex ? 'active' : ''}`} key={index} onClick={() => handleZoomToLand(index)}>
+                          <div className={"name"}>
+                            <Typography>Land - {index + 1}</Typography>
+                          </div>
+                        </div>
 
+                      </>
+                    ))}
+                  </Carousel>
+                </div>
+              )}
               <TransformComponent>
                 <Svg />
               </TransformComponent>
