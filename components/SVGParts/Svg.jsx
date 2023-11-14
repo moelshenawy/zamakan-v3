@@ -18,11 +18,11 @@ const Svg = () => {
       }
 
       if (viewportWidth <= 600) {
-        setViewBox("90 70 758 624"); // for small screens
+        setViewBox("90 70 758 624");
       } else if (viewportWidth <= 1200) {
-        setViewBox("0 0 858 724"); // for medium screens
+        setViewBox("0 0 858 724");
       } else {
-        setViewBox("0 0 858 724"); // for large screens
+        setViewBox("0 0 858 724");
       }
     };
 
