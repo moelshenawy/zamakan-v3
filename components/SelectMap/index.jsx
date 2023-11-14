@@ -40,30 +40,9 @@ const SelectMap = ({ cityNames, activeIndex }) => {
     }
   };
 
-  console.log(textContents)
   return (
     <>
-      <Carousel rtl={true} responsive={responsive}
-        ssr={false}
-        minimumTouchDrag={10}
-        arrows={false}
-      >
-        <div className={`${styles.slider} ${styles.active}`} onClick={() => handleBoxClick(index)}>
 
-          <div className={styles.name}>
-            <Typography>المملكة</Typography>
-          </div>
-        </div>
-        {textContents?.map((city, index) => (
-          <div className={`slider  ${activeIndex === null ? 'active' : ''}`} key={index} onClick={() => handleBoxClick(index)}>
-
-            <div className={styles.name}>
-              <Typography>{city}</Typography>
-            </div>
-          </div>
-
-        ))}
-      </Carousel>
     </>
   )
 }

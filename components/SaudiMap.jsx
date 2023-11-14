@@ -7,9 +7,10 @@ import Svg from './SVGParts/Svg';
 import { useRouter } from 'next/router';
 import SelectPage from './SelectPage';
 import SelectMap from './SelectMap';
+import Carousel from 'react-multi-carousel';
 
 const SaudiMap = () => {
-  const { smallMap, SaudiMap } = imgs;
+  const { smallMap, } = imgs;
 
   const router = useRouter();
 
@@ -128,32 +129,66 @@ const SaudiMap = () => {
 
   }, [activeIndex, activeLand])
 
+  const textContents = Array.from(cityNames).map((city) => city.textContent);
 
+  const responsive = {
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5.5
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 5.5
+    },
+    smallScreens: {
+      breakpoint: { max: 1260, min: 1024 },
+      items: 3.5
+
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 3
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 360 },
+      items: 3.5
+    },
+    smallMobile: {
+      breakpoint: { max: 360, min: 250 },
+      items: 4
+    },
+    smallMobile2: {
+      breakpoint: { max: 250, min: 0 },
+      items: 3,
+    }
+  };
 
   return (
     <>
 
       <div id='map-boxes'>
+
+
+
+
         <TransformWrapper
           ref={transformComponentRef}
           initialScale={1}
           wheel={{ wheelDisabled: true }}
 
-          minScale={0.5}
-          maxScale={2}
           pan={{ disabled: false }}
           zoomIn={{ step: 100 }}
           zoomOut={{ step: 100 }}
-
         >
+
+
           {({ zoomIn, zoomOut, resetTransform }) => (
 
             <>
               <div className="tools">
-                <button onClick={() => zoomIn()}>Zoom In</button>
-                <button onClick={() => zoomOut()}>Zoom Out</button>
+                <button onClick={() => zoomIn()}>+</button>
+                <button onClick={() => zoomOut()}>-</button>
                 <button onClick={() => {
-
                   resetTransform();
                   setActiveIndex(null);
                   setActiveLand(null);
@@ -167,8 +202,7 @@ const SaudiMap = () => {
 
                 }}>Reset</button>
 
-
-                <div className={`select-box  ${activeIndex === null ? 'active' : ''}`} onClick={() => {
+                <div className={`select-box ${activeIndex === null ? 'active' : ''}`} onClick={() => {
 
                   resetTransform();
                   setActiveIndex(null);
@@ -187,6 +221,7 @@ const SaudiMap = () => {
                   </div>
                 </div>
 
+
                 {Array.from({ length: landElments.length }).map((_, index) => (
 
                   <div className={`select-box ${index === activeIndex ? 'active' : ''}`} key={index} onClick={() => handleZoomToLand(index)}>
@@ -202,19 +237,50 @@ const SaudiMap = () => {
 
 
 
-                <div className="select_container">
-                  {/* <SelectMap cityNames={cityNames} activeIndex={activeIndex} /> */}
-                </div>
+
 
               </div>
 
+              <div className="slider-container">
+                <Carousel rtl={true} responsive={responsive}
+                  minimumTouchDrag={10}
+                  arrows={false}
+                >
+                  <div className={`slider ${activeIndex === null ? 'active' : ''}`} onClick={() => {
+                    resetTransform();
+                    setActiveIndex(null);
+                    setActiveLand(null);
+                    seIsPointsActive(false);
+
+                    landElments.forEach((element) => {
+                      element.classList.remove('activeLand', 'hiddenPoints');
+                    });
+                  }} >
+
+                    <div className={"name"}>
+                      <Typography>المملكة</Typography>
+                    </div>
+                  </div>
+                  {Array.from({ length: landElments.length }).map((_, index) => (
+
+                    <>
+                      <div className={`slider ${index === activeIndex ? 'active' : ''}`} key={index} onClick={() => handleZoomToLand(index)}>
+                        <div className={"name"}>
+                          <Typography>Land - {index + 1}</Typography>
+                        </div>
+                      </div>
+
+                    </>
+                  ))}
+                </Carousel>
+              </div>
+
               <TransformComponent>
-                <div id='map'>
-                  <Svg />
-                </div>
+                <Svg />
               </TransformComponent>
             </>
-          )}
+          )
+          }
         </TransformWrapper >
 
 

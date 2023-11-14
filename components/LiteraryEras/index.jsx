@@ -73,9 +73,6 @@ const LiteraryEras = () => {
 
 
 
-
-
-
   return (
 
     < section id='LiteraryEras' className={styles.LiteraryEras} style={...Effra.style}>
@@ -93,6 +90,7 @@ const LiteraryEras = () => {
             <Carousel rtl={true} responsive={responsive}
               ssr={true}
               minimumTouchDrag={10}
+
 
             >
 
@@ -159,6 +157,12 @@ const LiteraryEras = () => {
                 </Button>
               </Link>
             </Carousel>
+
+
+
+
+
+
           </div>
         </div>
       </Container>

@@ -67,7 +67,6 @@ const Poets = () => {
 
 
 
-
   return (
     < section id='Poets' className={styles.Poets} style={...Effra.style}>
       <Container sx={{ maxWidth: "1400px" }} maxWidth={false} className='disable_container'>
@@ -298,6 +297,9 @@ const Poets = () => {
 
 
             </Carousel>
+
+
+
           </div>
         </div>
       </Container>

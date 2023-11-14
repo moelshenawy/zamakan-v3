@@ -126,12 +126,6 @@ body::-webkit-scrollbar-track {
 .tools {
   overflow: auto;
   scrollbar-width: thin; /* Enable custom scrollbars in Firefox */
-
-  .select-box {
-    // @media screen and (max-width: 450px) {
-    //   display: none !important;
-    // }
-  }
 }
 .tools::-webkit-scrollbar {
   width: 6px; /* Adjust the width as needed */
@@ -188,12 +182,14 @@ body::-webkit-scrollbar-track {
   }
 
   .tools {
-    width: 501px;
-    max-height: 300px;
-    overflow-y: auto;
-    margin-top: 23px;
-    padding-left: 10px;
-
+    @media screen and (min-width: 992px) {
+      width: 501px;
+      max-height: 300px;
+      overflow-y: auto;
+      margin-top: 23px;
+      padding-left: 10px;
+      overflow: auto;
+    }
     .select-box {
       transition: all 0.3s ease-in-out;
       display: flex;
@@ -204,6 +200,9 @@ body::-webkit-scrollbar-track {
       border-radius: 10px 0px 0px 10px;
       margin-bottom: 5px;
       padding-right: 30px;
+      @media screen and (max-width: 992px) {
+        display: none;
+      }
 
       .img_container {
         margin-left: 10px;
@@ -230,27 +229,76 @@ body::-webkit-scrollbar-track {
       }
     }
 
-    .select-box.active {
-      background-color: #faf4f3;
-      border-right: 3px solid var(--main-red-color);
-      height: 100%;
-
-      .name {
-        p {
-          color: var(--main-red-color);
-        }
-      }
-    }
-
-    @media screen and (max-width: 450px) {
+    @media screen and (max-width: 992px) {
       overflow-y: unset;
       width: 100%;
       height: 100%;
     }
   }
-  .select_container {
+  .slider-container {
+    z-index: 100;
     width: 100% !important;
     height: 100% !important;
+    @media screen and (min-width: 992px) {
+      display: none;
+    }
+
+    .slider {
+      margin: 10px;
+      padding: 5px;
+      min-width: 100px;
+      cursor: pointer;
+
+      .name {
+        p {
+          font-family: var(--effra-font);
+          font-size: 18px;
+          font-weight: 400;
+          letter-spacing: 0px;
+          color: #707f82;
+          transition: all 0.3s ease-in-out;
+          position: relative;
+          text-align: center;
+        }
+      }
+    }
+    .slider.active {
+      .name {
+        p {
+          color: var(--main-bkue-color);
+          font-weight: bold;
+          position: relative;
+          &:after {
+            content: "";
+            position: absolute;
+            bottom: -2px !important;
+            left: 44%;
+            width: 16px;
+            height: 3px;
+            background-color: var(--main-beige-color);
+            z-index: 35;
+            pointer-events: none;
+          }
+        }
+      }
+    }
+  }
+
+  #svg1 {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .select-box.active {
+    background-color: #faf4f3;
+    border-right: 3px solid var(--main-red-color);
+    height: 100%;
+
+    .name {
+      p {
+        color: var(--main-red-color);
+      }
+    }
   }
 }
 
@@ -302,10 +350,6 @@ body::-webkit-scrollbar-track {
   -o-transition: transform 0.5s;
   transition: transform 0.5s;
   transition: transform 0.5s, -webkit-transform 0.5s;
-  #svg1 {
-    // width: 100% !important;
-    // height: 100% !important;
-  }
 }
 
 .city-name {
