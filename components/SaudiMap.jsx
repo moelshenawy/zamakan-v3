@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { motion, useAnimation } from 'framer-motion';
 import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
 import imgs from '../assets/constants/imgs';
 import { Typography } from '@mui/material';
@@ -163,6 +162,7 @@ const SaudiMap = () => {
     }
   };
 
+
   return (
     <>
 
@@ -184,6 +184,7 @@ const SaudiMap = () => {
           minScale={0.5}
           maxScale={2}
           initialScale={1}
+          disabled={true}
 
           doubleClick={{ disabled: false, mode: "reset" }}
           wrapperStyle={{ maxWidth: "100%", maxHeight: "calc(100vh - 50px)" }}
