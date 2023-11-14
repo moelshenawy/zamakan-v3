@@ -180,12 +180,9 @@ const SaudiMap = () => {
           zoomIn={{ step: 100 }}
           zoomOut={{ step: 100 }}
 
-          limitToBounds={true}
           minScale={0.5}
           maxScale={2}
           initialScale={1}
-          disabled={true}
-          centerOnInit={true}
 
           doubleClick={{ disabled: false, mode: "reset" }}
           wrapperStyle={{ maxWidth: "100%", maxHeight: "calc(100vh - 50px)" }}

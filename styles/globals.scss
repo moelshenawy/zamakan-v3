@@ -157,7 +157,8 @@ body::-webkit-scrollbar-track {
 .tools {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 16px;
+  @media screen and (min-width: 992px) {
+  }
   button {
     margin: 5px;
     padding: 12px;
