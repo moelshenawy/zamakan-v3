@@ -62,7 +62,6 @@ const Slider = ({ landElments }) => {
           minimumTouchDrag={10}
           arrows={false}
           ssr={false}
-
           draggable
           additionalTransfrom={0}
           centerMode={false}
@@ -72,6 +71,7 @@ const Slider = ({ landElments }) => {
           renderArrowsWhenDisabled={false}
           renderButtonGroupOutside={false}
           renderDotsOutside={false}
+
         >
           <div className={`${styles.slider} ${activeIndex === null ? styles.active : ''}`} onClick={() => {
             resetTransform();
@@ -91,8 +91,7 @@ const Slider = ({ landElments }) => {
           {Array.from({ length: landElments.length }).map((_, index) => (
 
             <>
-              {console.log(landElments, "landElments")
-              }
+
               <div className={`${styles.slider} ${index === activeIndex ? styles.active : ''}`} key={index} onClick={() => handleZoomToLand(index)}>
                 <div className={styles.name}>
                   <Typography>الرياض </Typography>
@@ -102,7 +101,7 @@ const Slider = ({ landElments }) => {
             </>
           ))}
         </Carousel>
-      </div>
+      </div >
     </>
   );
 };

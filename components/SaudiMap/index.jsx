@@ -18,7 +18,13 @@ const SaudiMap = ({ }) => {
 
 
 
+  const stateObj = {
+    positionX: 0,
+    positionY: 0,
+    previousScale: 1,
+    scale: 0.8,
 
+  }
   return (
     <>
 
@@ -27,21 +33,19 @@ const SaudiMap = ({ }) => {
 
         <div className={styles.map_boxes} id='map-boxes'>
           <TransformWrapper
+            transform={`translate(-98.2px, 19.8px) scale(0.8)`}
             ref={transformComponentRef}
             wheel={{ wheelDisabled: true }}
-            initialPositionX={0}
-            initialPositionY={0}
             pan={{ disabled: false }}
             zoomIn={{ step: 100 }}
             zoomOut={{ step: 100 }}
-            centerOnInit={true}
+            centerOnInit={false}
             minScale={0.5}
-            maxScale={2}
-            initialScale={1}
-
+            maxScale={1}
+            initialScale={0.8}
+            wrapperStyle={{ maxWidth: '100%', maxHeight: 'calc(100vh - 50px)' }}
+            state={stateObj}
             doubleClick={{ disabled: false, mode: "reset" }}
-            wrapperStyle={{ maxWidth: "100%", maxHeight: "calc(100vh - 50px)" }}
-
           >
 
 
@@ -60,7 +64,6 @@ const SaudiMap = ({ }) => {
                     landElments.forEach((element) => {
                       element.classList.remove('activeLand', 'hiddenPoints');
                     });
-
                   }}>Reset</button>
 
 
