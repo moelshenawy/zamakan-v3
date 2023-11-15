@@ -123,31 +123,26 @@ body {
 //   }
 // }
 
-// // .react-transform-wrapper {
-// //   // width: 695.43px !important;
-// //   // height: 100% !important;
-// //   margin-top: -200px !important;
+.react-transform-wrapper {
+  // width: 695.43px !important;
+  // height: 100% !important;
+  margin-top: -200px !important;
 
-// //   @media screen and (max-width: 450px) {
-// //     border: 1px solid var(--main-blue-color);
-// //     border-radius: 5px;
-// //   }
+  @media screen and (max-width: 450px) {
+    border: 1px solid var(--main-blue-color);
+    border-radius: 5px;
+  }
 
-// //   @media screen and (max-width: 992px) {
-// //     width: 100% !important;
-// //     margin-top: 24px !important;
-// //     margin-bottom: 24px !important;
-// //   }
+  @media screen and (max-width: 992px) {
+    width: 100% !important;
+    margin-top: 24px !important;
+    margin-bottom: 24px !important;
+  }
+}
 
-// //   #svg1 {
-// //     width: 100% !important;
-// //     height: 100% !important;
-// //   }
-// // }
-
-// .react-transform-wrapper {
-//   margin-top: -200px !important;
-// }
+.react-transform-wrapper {
+  margin-top: -200px !important;
+}
 
 // @media screen and (max-width: 992px) {
 //   .react-transform-wrapper {
