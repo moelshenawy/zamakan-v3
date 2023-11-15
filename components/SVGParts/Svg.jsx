@@ -1,8 +1,7 @@
 import React, { use, useEffect, useState } from 'react'
 import Defs from './Defs';
 import GElements from './GElements';
-
-
+import styles from '../SaudiMap/index.module.scss'
 const Svg = () => {
   const [viewBox, setViewBox] = useState()
   const [smallScreen, setSmallScreen] = useState(false)
@@ -38,7 +37,7 @@ const Svg = () => {
     <>
       <div id="map">
         <xml version="1.0" encoding="UTF-8" standalone="no" />
-        <svg id="svg1" width="858" height="724" fill="none" xmlns="http://www.w3.org/2000/svg" class="saudi-map" viewBox={viewBox}>
+        <svg id={styles.svg1} width="858" height="724" fill="none" xmlns="http://www.w3.org/2000/svg" class="saudi-map" viewBox={viewBox}>
           <GElements />
         </svg>
       </div>

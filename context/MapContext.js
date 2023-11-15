@@ -31,7 +31,7 @@ export const MapContextProvider = ({ children }) => {
   const containerRef = useRef(null);
   const handleClick = () => {
     // Navigate to the specified route
-    router.push("/city");
+    // router.push("/city");
   };
 
   useEffect(() => {
