@@ -68,9 +68,7 @@ const SaudiMap = ({ }) => {
 
 
                 </div>
-                {/* {landElments?.length > 0 && (
-                <Slider resetTransform={resetTransform} />
-              )} */}
+
                 <TransformComponent>
                   <Svg />
                 </TransformComponent>
