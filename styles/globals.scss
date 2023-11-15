@@ -34,7 +34,7 @@ a {
   text-decoration: none;
 }
 
-// global scrollbar
+//.city-namelobal scrollbar
 body {
   scrollbar-width: thin;
 }
@@ -97,8 +97,8 @@ body::-webkit-scrollbar-track {
 
 #map-boxes {
   #svg1 {
-    max-width: 100% !important;
-    height: auto !important;
+    // max-width: 100% !important;
+    // height: auto !important;
   }
 }
 
@@ -147,7 +147,7 @@ body::-webkit-scrollbar-track {
 }
 
 .land {
-  g {
+  .city-name {
     -webkit-transition: -webkit-transform 0.3s ease-in-out !important;
     transition: -webkit-transform 0.3s ease-in-out !important;
     -o-transition: transform 0.3s ease-in-out !important;
@@ -161,54 +161,19 @@ body::-webkit-scrollbar-track {
     cursor: pointer;
     opacity: 1;
   }
-  g:hover {
+  .city-name:hover {
     -webkit-transform: translateY(-5px) !important;
     -ms-transform: translateY(-5px) !important;
     transform: translateY(-5px) !important;
   }
 }
 
-.land {
-  // stroke-dasharray: none;
-  cursor: pointer;
-  -webkit-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
-  path {
-    -webkit-transition: all 0.5s ease-in-out;
-    -o-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
-  }
-}
-.land.activeLand {
-  path {
-    &:first-child,
-    &:nth-child(1) {
-      stroke-width: 2 !important;
-      stroke: #ffffff !important;
-    }
-  }
-}
-
 .hiddenPoints {
-  g {
+  .city-name {
     opacity: 0 !important;
   }
 }
 
-.land {
-  path {
-    -webkit-transition: stroke 0.5s ease-in-out !important;
-    -o-transition: stroke 0.5s ease-in-out !important;
-    transition: stroke 0.5s ease-in-out !important;
-  }
-  &:hover {
-    path {
-      stroke-width: 2 !important;
-      stroke: #ffffff !important;
-    }
-  }
-}
 // .land:nth-child(1) {
 //   &:hover {
 //     -webkit-transform: scale(1.02) translate(-1%, -2%) !important;
@@ -463,4 +428,28 @@ foreignObject {
   position: absolute;
   height: 10.33px;
   width: 29.22px;
+}
+
+.city-name {
+  background: #fff;
+  color: #bb7165;
+  font-size: 16px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 26px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 2px 11px;
+  border-radius: 35px;
+  cursor: pointer;
+  font-family: var(--effra-font) !important;
 }

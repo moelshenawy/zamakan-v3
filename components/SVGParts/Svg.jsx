@@ -18,39 +18,30 @@ const Svg = () => {
       }
 
       if (viewportWidth <= 600) {
-        setViewBox("90 70 758 624");
+        setViewBox("0 0 700 882");
       } else if (viewportWidth <= 1200) {
-        setViewBox("0 0 858 724");
+        setViewBox("0 0 700 882");
       } else {
         setViewBox("0 0 858 724");
       }
     };
-
-    // Initial call
     handleResize();
-
-    // Event listener for window resize
     window.addEventListener('resize', handleResize);
 
-    // Cleanup the event listener on component unmount
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+
   return (
     <>
-      <svg
-        width="393"
-        height="482"
-        viewBox="0 0 393 482"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <GElements />
-        <Defs />
-
-      </svg>
-
+      <div id="map">
+        <xml version="1.0" encoding="UTF-8" standalone="no" />
+        <svg id="svg1" width="858" height="724" fill="none" xmlns="http://www.w3.org/2000/svg" class="saudi-map" viewBox={viewBox}>
+          <GElements />
+        </svg>
+      </div>
 
 
 
