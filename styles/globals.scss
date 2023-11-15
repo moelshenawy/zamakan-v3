@@ -116,13 +116,6 @@ body::-webkit-scrollbar-track {
   }
 }
 
-// #map-boxes {
-//   #svg1 {
-//     width: 100%;
-// height: auto !important;
-//   }
-// }
-
 // .react-transform-wrapper {
 //   // width: 695.43px !important;
 //   // height: 100% !important;
@@ -159,6 +152,11 @@ body::-webkit-scrollbar-track {
   -o-transition: transform 0.5s;
   transition: transform 0.5s;
   transition: transform 0.5s, -webkit-transform 0.5s;
+
+  #svg1 {
+    transform: translate(-93px, -17px);
+    scale: 1.05;
+  }
 }
 
 .land {

@@ -34,7 +34,7 @@ const SaudiMap = ({ }) => {
             pan={{ disabled: false }}
             zoomIn={{ step: 100 }}
             zoomOut={{ step: 100 }}
-
+            centerOnInit={true}
             minScale={0.5}
             maxScale={2}
             initialScale={1}
