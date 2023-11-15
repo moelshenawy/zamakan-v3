@@ -123,26 +123,26 @@ body {
 //   }
 // }
 
-.react-transform-wrapper {
-  // width: 695.43px !important;
-  // height: 100% !important;
-  margin-top: -200px !important;
+// .react-transform-wrapper {
+//   // width: 695.43px !important;
+//   // height: 100% !important;
+//   // margin-top: -200px !important;
 
-  @media screen and (max-width: 450px) {
-    border: 1px solid var(--main-blue-color);
-    border-radius: 5px;
-  }
+//   // @media screen and (max-width: 450px) {
+//   //   border: 1px solid var(--main-blue-color);
+//   //   border-radius: 5px;
+//   // }
 
-  @media screen and (max-width: 992px) {
-    width: 100% !important;
-    margin-top: 24px !important;
-    margin-bottom: 24px !important;
-  }
-}
+//   @media screen and (max-width: 992px) {
+//     width: 100% !important;
+//     margin-top: 24px !important;
+//     margin-bottom: 24px !important;
+//   }
+// }
 
-.react-transform-wrapper {
-  margin-top: -200px !important;
-}
+// .react-transform-wrapper {
+//   margin-top: -200px !important;
+// }
 
 @media screen and (max-width: 992px) {
   .react-transform-wrapper {
@@ -151,7 +151,6 @@ body {
     margin-bottom: 24px !important;
   }
 }
-
 #map {
   width: 100%;
   height: 100%;
@@ -162,27 +161,27 @@ body {
   transition: transform 0.5s, -webkit-transform 0.5s;
 }
 
-// .land {
-//   .city-name {
-//     -webkit-transition: -webkit-transform 0.3s ease-in-out !important;
-//     transition: -webkit-transform 0.3s ease-in-out !important;
-//     -o-transition: transform 0.3s ease-in-out !important;
-//     transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out !important;
-//     transition: transform 0.3s ease-in-out !important;
-//     -webkit-transform: translateY(0px) !important;
-//     -ms-transform: translateY(0px) !important;
-//     transform: translateY(0px) !important;
+.land {
+  .city-name {
+    -webkit-transition: -webkit-transform 0.3s ease-in-out !important;
+    transition: -webkit-transform 0.3s ease-in-out !important;
+    -o-transition: transform 0.3s ease-in-out !important;
+    transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out !important;
+    transition: transform 0.3s ease-in-out !important;
+    -webkit-transform: translateY(0px) !important;
+    -ms-transform: translateY(0px) !important;
+    transform: translateY(0px) !important;
 
-//     z-index: auto;
-//     cursor: pointer;
-//     opacity: 1;
-//   }
-//   .city-name:hover {
-//     -webkit-transform: translateY(-5px) !important;
-//     -ms-transform: translateY(-5px) !important;
-//     transform: translateY(-5px) !important;
-//   }
-// }
+    z-index: auto;
+    cursor: pointer;
+    opacity: 1;
+  }
+  .city-name:hover {
+    -webkit-transform: translateY(-5px) !important;
+    -ms-transform: translateY(-5px) !important;
+    transform: translateY(-5px) !important;
+  }
+}
 
 // .hiddenPoints {
 //   .city-name {
