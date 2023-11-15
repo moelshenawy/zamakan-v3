@@ -37,7 +37,7 @@ const Svg = () => {
     <>
       <div id="map">
         <xml version="1.0" encoding="UTF-8" standalone="no" />
-        <svg id={styles.svg1} width="858" height="724" fill="none" xmlns="http://www.w3.org/2000/svg" class="saudi-map" viewBox={viewBox}>
+        <svg id={styles.svg1} width="858" height="724" fill="none" xmlns="http://www.w3.org/2000/svg" class="saudi-map" viewBox="0 0 700 882">
           <GElements />
         </svg>
       </div>
